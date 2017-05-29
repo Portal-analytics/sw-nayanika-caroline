@@ -8,6 +8,11 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 //import injectTapEventPlugin from 'react-tap-event-plugin';
 import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import FontIcon from 'material-ui/FontIcon';
+import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
+import Paper from 'material-ui/Paper';
+import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
+
 
 
 
@@ -32,13 +37,31 @@ const style = {
 /**
  * Default size and `mini` FABs, in primary (default), `secondary` and `disabled` colors.
  */
-const FloatingActionButtonExampleSimple = () => (
+const FloatingActionButtonSimple = () => (
   <div>
     <FloatingActionButton style={style}>
       <ContentAdd />
     </FloatingActionButton>
   </div>
 );
+const FloatingActionButtonSimple2 = () => (
+  <div>
+    <FloatingActionButton mini={true} secondary={true} style={style}>
+      <ContentAdd />
+    </FloatingActionButton>
+  </div>
+);
+
+const recentsIcon = <FontIcon className="material-icons">restore</FontIcon>;
+const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
+const nearbyIcon = <IconLocationOn />;
+
+class BottomNavigationExampleSimple extends Component {
+  state = {
+    selectedIndex: 0,
+  };
+
+  select = (index) => this.setState({selectedIndex: index})};
 
 class App extends Component {
   constructor() {
@@ -57,10 +80,21 @@ class App extends Component {
       <div className="App">
         <AppBar />
         <div  onClick ={() => this.changeState()}> {names[this.state.index]}>
-        <FloatingActionButtonExampleSimple />
-       
+        <FloatingActionButtonSimple />
         </div>
-         <h1 onClick ={() => this.changeState()}>{names[this.state.index]}</h1>
+        <div  onClick ={() => this.changeState()}> {names[Math.floor(Math.random*names.length)]}>
+         
+        <FloatingActionButtonSimple2 />
+        <h1 onClick ={() => this.changeState()}>{names[this.state.index]}</h1>
+        </div>
+        
+
+         <div selectedIndex={this.state.selectedIndex}>
+
+           <BottomNavigation />
+         </div>
+         
+                 
       
         
       </div>
