@@ -98,6 +98,14 @@ class App extends Component {
     }
 
     handleIndexChange(e){
+    
+     var infoArray=[];
+      infoArray.push(this.state.name);
+      infoArray.push(this.state.description);
+      infoArray.push(this.state.price);
+      infoArray.push(this.state.index); //info array ...retrieve the index by asking infoArray[3]; 
+      let newContracts = this.state.contracts;
+      newContracts.push(infoArray)
     //if statement to check if index already assigned; so would keep it when pressed submit. otherwise, increment.
     const count = this.state.count +1; //attach that to onclick for submit //assign index on submit //need index field
     const index = infoArray[3];
