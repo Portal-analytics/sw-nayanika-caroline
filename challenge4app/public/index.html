@@ -22,6 +22,31 @@
     <title>React App</title>
   </head>
   <body>
+   
+<script src="https://www.gstatic.com/firebasejs/4.1.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCfGu22myhTt4-2i0-TuZpoIyuznKuVOFQ",
+    authDomain: "contact-tracker-ccf9c.firebaseapp.com",
+    databaseURL: "https://contact-tracker-ccf9c.firebaseio.com",
+    projectId: "contact-tracker-ccf9c",
+    storageBucket: "contact-tracker-ccf9c.appspot.com",
+    messagingSenderId: "277621439718"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="/__/firebase/4.0.0/firebase-app.js"></script>
+    <script src="/__/firebase/4.0.0/firebase-auth.js"></script>
+    <script src="/__/firebase/4.0.0/firebase-database.js"></script>
+    <script src="/__/firebase/4.0.0/firebase-messaging.js"></script>
+
+    <!-- Leave out Storage -->
+    <!-- <script src="/__/firebase/4.0.0/firebase-storage.js"></script> -->
+
+    <script src="/__/firebase/init.js"></script>
+   
+   
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
@@ -37,4 +62,7 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+
+
+
 </html>
