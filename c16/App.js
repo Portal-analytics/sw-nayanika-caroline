@@ -14,6 +14,7 @@ import SideMenu from "react-native-side-menu";
 import Settings from "./settings";
 import Home from "./Home";
 import Menu from "./Menu";
+import settingpicture from "./settings.png";
 
 
 const menu = <Menu onItemSelected={this.onMenuItemSelected} />;
@@ -60,14 +61,14 @@ class Nav extends React.Component {
       <NativeRouter>
         <View style={styles.container}>
           <View style={styles.nav}>
-            <Link to="/" underlayColor="#f0f4f7" style={styles.navItem}>
-              <Text> Home </Text>
+            <Link to="/" underlayColor="#dc143c" style={styles.navItem}>
+              <Text style={styles.home}> Home </Text>
             </Link>
             <View>
-            <Link to="/settings" underlayColor="#f0f4f7" style={styles.navItem}>
+            <Link to="/settings" underlayColor="#dc143c" style={styles.navItem}>
               <Text>
                 <Image
-                  //source={settingpicture}
+                  source={settingpicture}
                   style={{ width: 32, height: 32 }}
                 />
               </Text>
@@ -87,15 +88,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "stretch",
-    backgroundColor: "#F5FCFF"
+    backgroundColor: "#e9967a"
   },
   sidebar: {
-    backgroundColor: "green"
+    backgroundColor: "black"
   },
 
   nav: {
-    marginTop: 25,
-    padding: 10,
+    marginTop: 10,
+    padding: 40,
     flexDirection: "row",
     justifyContent: "space-around"
   },
@@ -107,10 +108,17 @@ const styles = StyleSheet.create({
   },
 
   navbar: {
-    backgroundColor: "#F5FCFF"
+    backgroundColor: "#e9967a"
+  },
+
+  home: {
+    fontSize: 40
+
   },
 
   welcome: {
     textAlign: "center"
   }
+
+
 });
