@@ -14,6 +14,7 @@ import { NativeRouter, Route, Link } from "react-router-native";
 import Settings from "./Settings.js";
 import Home from "./Home.js";
 import Profile from "./Profile.js";
+import * as firebase from 'firebase';
 
 const window = Dimensions.get("window");
 const uri =
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
     padding: 10,
     flexDirection: "row",
     justifyContent: "space-around",
-    backgroundColor: "teal"
+    backgroundColor: "palevioletred"
   },
   navItem: {
     flex: 1,

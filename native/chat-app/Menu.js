@@ -11,6 +11,7 @@ import { NativeRouter, Route, Link } from "react-router-native";
 import Settings from "./Settings.js";
 import Home from "./Home.js";
 import Profile from "./Profile.js";
+import * as firebase from 'firebase';
 
 const window = Dimensions.get("window");
 const uri = "https://pickaface.net/gallery/avatar/Opi51c74d0125fd4.png";
@@ -49,13 +50,26 @@ const styles = StyleSheet.create({
   }
 });
 
+var profile = {
+  name: 'Profile!',
+  component: Profile
+};
+
 module.exports = class Menu extends React.Component {
+    nextPage() {
+    this.props.toRoute({
+      name: "A new screen",
+      component: {Profile}
+    });
+  }
+  
+
   render() {
     return (
       <ScrollView scrollsToTop={false} style={styles.menu}>
         <View style={styles.avatarContainer}>
           <Image style={styles.avatar} source={{ uri }} />
-          <Text style={styles.name}>killme</Text>
+          <Text style={styles.name}> * </Text>
           <NativeRouter>
             <View>
               <Link
@@ -73,3 +87,4 @@ module.exports = class Menu extends React.Component {
     );
   }
 };
+

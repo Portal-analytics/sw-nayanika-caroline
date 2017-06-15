@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import { NativeRouter, Route, Link } from "react-router-native";
 import TextBox from "./App.js";
+import * as firebase from 'firebase';
 
 const styles = StyleSheet.create({
   button: {
@@ -17,7 +18,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "stretch",
-    backgroundColor: "#F5FCFF"
+    backgroundColor: "#F5FCFF",
+    marginBottom: 10
   },
   welcome: {
     fontSize: 50,
@@ -32,7 +34,7 @@ const styles = StyleSheet.create({
   input: {
     margin: 10,
     height: 40,
-    borderColor: "purple",
+    borderColor: "mediumvioletred",
     borderWidth: 3,
     textAlign: 'center'
   },
@@ -42,8 +44,25 @@ const styles = StyleSheet.create({
   },
   posts:{
       fontSize: 20,
-      margin: 10,
-      fontWeight: 'bold'
+      marginLeft: 12,
+      fontWeight: 'bold',
+      width: 200,
+    borderRadius: 10
+  },
+  message:{
+    backgroundColor:'pink',
+    marginBottom: 10,
+    marginLeft: 12,
+    marginRight: 30,
+    borderRadius: 10
+  },
+  time:{
+    color: 'gray',
+    fontSize: 20,
+      marginLeft: 12,
+      fontWeight: 'bold',
+      width: 200,
+    borderRadius: 10
   }
 });
 export default class Home extends React.Component {
@@ -88,12 +107,10 @@ export default class Home extends React.Component {
         />
         {this.state.quotes.map(quote => {
           return (
-            <View>
-              <Text style={styles.posts}>User: {this.state.user}</Text>
-              <Text style={styles.posts}>Message: {quote}</Text>
-              <Text style={styles.posts}>
-                Time: {this.state.currentTime}
-                {"\n"}
+            <View style={styles.message}>
+              <Text style={styles.posts}>{this.state.user}: {quote}</Text>
+              <Text style={styles.time}>
+                {this.state.currentTime}
               </Text>
 
             </View>
